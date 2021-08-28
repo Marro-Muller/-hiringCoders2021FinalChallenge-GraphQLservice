@@ -30,7 +30,10 @@ type Query {
 
 type Mutation {
   delete(id: String): Boolean
-  editLead(id: ID!, lead: LeadInput!): Lead
+  """
+  Mutation utilizada para edição de leads na AWS
+  """
+  editLead(lead: LeadInput!): AWSResponse
   """
   Mutation utilizada para criação de novos leads na AWS
   """

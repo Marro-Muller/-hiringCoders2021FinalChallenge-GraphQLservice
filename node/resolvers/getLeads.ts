@@ -1,5 +1,9 @@
+interface EmailArg {
+  email: string
+}
+
 export const getLeads = (
   _: any,
-  __: any,
+  { email }: EmailArg,
   { clients: { lead: leadsClient } }: Context
-) => leadsClient.getLeads()
+) => leadsClient.getLeads(email)

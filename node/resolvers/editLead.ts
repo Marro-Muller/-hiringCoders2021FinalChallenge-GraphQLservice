@@ -1,12 +1,11 @@
 import type { LeadInput } from '../typings/lead'
 
-interface EditLeadArg {
-  id: string
+interface Args {
   lead: LeadInput
 }
 
 export const editLead = (
   _: any,
-  { id, lead }: EditLeadArg,
+  { lead }: Args,
   { clients: { lead: leadsClient } }: Context
-) => leadsClient.editLead(id, lead)
+) => leadsClient.editLead(lead)

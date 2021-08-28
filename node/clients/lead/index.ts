@@ -1,13 +1,7 @@
 import type { InstanceOptions, IOContext } from '@vtex/api'
 import { ExternalClient } from '@vtex/api'
 
-import type {
-  Lead,
-  LeadInput,
-  LeadAWSList,
-  AWSResponse,
-  Maybe,
-} from '../../typings/lead'
+import type { LeadInput, AWSResponse } from '../../typings/lead'
 
 export class LeadClient extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
@@ -18,15 +12,21 @@ export class LeadClient extends ExternalClient {
     )
   }
 
-  public getLeads = () => {
+  public getLeads = (email: string) => {
+    const leads = {
+      payload: {
+        Item: {
+          email,
+        },
+      },
+    }
+
+    console.info(leads)
+
     const items = this.http
-      .post<LeadAWSList>('/default/apiAcctLead', {
-        operation: 'list',
-        tableName: 'desafiovtexlead',
-        payload: {},
-      })
+      .get<AWSResponse>('/default/apiAcctLead')
       .then((receivedData) => {
-        return receivedData.Items
+        return receivedData
       })
 
     return items
@@ -36,11 +36,27 @@ export class LeadClient extends ExternalClient {
     console.info(id)
   }
 
-  public editLead = (id: string, lead: LeadInput): Maybe<Lead> => {
-    console.info(`${id}, ${lead}`)
+  public editLead = (lead: LeadInput) => {
+    const editLead = {
+      payload: {
+        Item: {
+          name: lead?.name,
+          phoneNumber: lead?.phoneNumber,
+          email: lead?.email,
+        },
+      },
+    }
+
+    const res = this.http
+      .put<AWSResponse>('/default/apiAcctLead', editLead)
+      .then((receivedData) => {
+        return receivedData
+      })
+
+    return res
   }
 
-  public newLead = async (lead: LeadInput) => {
+  public newLead = (lead: LeadInput) => {
     const newLead = {
       payload: {
         Item: {
