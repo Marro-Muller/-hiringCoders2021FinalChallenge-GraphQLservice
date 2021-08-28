@@ -1,6 +1,6 @@
 {
-  "name": "graphql-example",
-  "vendor": "vtex",
+  "name": "leadvtex25",
+  "vendor": "hiringcoders202125",
   "version": "0.2.2",
   "title": "GraphQL Example",
   "description": "Reference app for VTEX IO GraphQL Services",
@@ -17,6 +17,13 @@
   },
   "credentialType": "absolute",
   "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "ib90fko1tg.execute-api.us-east-1.amazonaws.com",
+        "path": "*"
+      }
+    },
     {
       "name": "colossus-fire-event"
     },

@@ -2,8 +2,8 @@ interface Args {
   id: string
 }
 
-export const deleteBook = (
+export const deleteLead = (
   _: any,
   { id }: Args,
-  { clients: { book: booksClient } }: Context
-) => booksClient.delete(id)
+  { clients: { lead: leadsClient } }: Context
+) => leadsClient.delete(id)
