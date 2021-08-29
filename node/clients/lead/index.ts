@@ -4,7 +4,6 @@ import { ExternalClient } from '@vtex/api'
 import type {
   LeadInput,
   AWSResponse,
-  AWSResponseLead,
   AWSResponseLeads,
 } from '../../typings/lead'
 
@@ -18,18 +17,32 @@ export class LeadClient extends ExternalClient {
   }
 
   public lead = (email: string) => {
-    const items = this.http
+    const item = this.http
       .get<AWSResponseLeads>(`/default/apiAcctLead/${email}`)
       .then((receivedData) => {
-        return receivedData
+        if (receivedData.statusCode === 200) {
+          return receivedData
+        }
+
+        const err: AWSResponseLeads = {
+          statusCode: receivedData.statusCode,
+          body: [
+            {
+              id: String(receivedData.statusCode),
+              name: receivedData.body.toString(),
+            },
+          ],
+        }
+
+        return err
       })
 
-    return items
+    return item
   }
 
   public leads = () => {
     const items = this.http
-      .get<AWSResponseLead>(`/default/apiAcctLead/*`)
+      .get<AWSResponseLeads>(`/default/apiAcctLead/*`)
       .then((receivedData) => {
         return receivedData
       })
@@ -37,10 +50,16 @@ export class LeadClient extends ExternalClient {
     return items
   }
 
-  public delete = (email: string) => {
-    const res = this.delete(`/default/apiAcctLead/${email}`)
+  public deleteLead = (email: string) => {
+    const res = this.http
+      .delete<AWSResponse>(`/default/apiAcctLead/${email}`)
+      .then((receivedData) => {
+        console.info(receivedData)
 
-    console.info(res)
+        return receivedData?.data
+      })
+
+    return res
   }
 
   public editLead = (lead: LeadInput) => {

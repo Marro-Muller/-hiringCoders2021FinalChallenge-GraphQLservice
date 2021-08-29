@@ -1,13 +1,13 @@
 export interface Lead {
-  id: string
-  name: string
-  email: string
-  phoneNumber: string
-  type: string
-  createdAt: string
-  updatedAt: string
-  leadAt: string
-  clientAt: string
+  id?: string
+  name?: string
+  email?: string
+  phoneNumber?: string
+  type?: string
+  createdAt?: string
+  updatedAt?: string
+  leadAt?: string
+  clientAt?: string
 }
 
 export interface LeadInput {

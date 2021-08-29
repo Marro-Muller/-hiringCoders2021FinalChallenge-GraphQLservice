@@ -1,7 +1,7 @@
 type Lead {
   id: ID
   name: String
-  email: String!
+  email: String
   phoneNumber: String
   type: String
   createdAt: String
@@ -29,13 +29,6 @@ type AWSResponse {
   body: String
 }
 
-type AWSResponseLead {
-  "Código de resposta da solicitação"
-  statusCode: Int
-  "Corpo da resposta"
-  body: Lead
-}
-
 type AWSResponseLeads {
   "Código de resposta da solicitação"
   statusCode: Int
@@ -47,7 +40,7 @@ type Query {
   """
   Query para recuperar um ou uma lista de leads
   """
-  lead(email: String): AWSResponseLead
+  lead(email: String): AWSResponseLeads
   leads: AWSResponseLeads
 }
 
