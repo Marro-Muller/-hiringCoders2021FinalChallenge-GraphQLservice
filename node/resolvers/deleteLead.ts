@@ -6,4 +6,4 @@ export const deleteLead = (
   _: any,
   { email }: Args,
   { clients: { lead: leadsClient } }: Context
-) => leadsClient.delete(email)
+) => leadsClient.deleteLead(email)

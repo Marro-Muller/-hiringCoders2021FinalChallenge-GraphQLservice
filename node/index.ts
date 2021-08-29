@@ -4,7 +4,7 @@ import { Service } from '@vtex/api'
 import { Clients } from './clients'
 import { lead } from './resolvers/lead'
 import { leads } from './resolvers/leads'
-import { deleteLead } from './resolvers/delete'
+import { deleteLead } from './resolvers/deleteLead'
 import { editLead } from './resolvers/editLead'
 import { newLead } from './resolvers/newLead'
 
