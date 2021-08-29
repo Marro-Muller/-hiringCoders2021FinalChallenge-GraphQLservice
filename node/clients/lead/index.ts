@@ -1,7 +1,12 @@
 import type { InstanceOptions, IOContext } from '@vtex/api'
 import { ExternalClient } from '@vtex/api'
 
-import type { LeadInput, AWSResponse } from '../../typings/lead'
+import type {
+  LeadInput,
+  AWSResponse,
+  AWSResponseLead,
+  AWSResponseLeads,
+} from '../../typings/lead'
 
 export class LeadClient extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
@@ -12,19 +17,9 @@ export class LeadClient extends ExternalClient {
     )
   }
 
-  public getLeads = (email: string) => {
-    const leads = {
-      payload: {
-        Item: {
-          email,
-        },
-      },
-    }
-
-    console.info(leads)
-
+  public lead = (email: string) => {
     const items = this.http
-      .get<AWSResponse>('/default/apiAcctLead')
+      .get<AWSResponseLeads>(`/default/apiAcctLead/${email}`)
       .then((receivedData) => {
         return receivedData
       })
@@ -32,8 +27,20 @@ export class LeadClient extends ExternalClient {
     return items
   }
 
-  public delete = (id: string) => {
-    console.info(id)
+  public leads = () => {
+    const items = this.http
+      .get<AWSResponseLead>(`/default/apiAcctLead/*`)
+      .then((receivedData) => {
+        return receivedData
+      })
+
+    return items
+  }
+
+  public delete = (email: string) => {
+    const res = this.delete(`/default/apiAcctLead/${email}`)
+
+    console.info(res)
   }
 
   public editLead = (lead: LeadInput) => {

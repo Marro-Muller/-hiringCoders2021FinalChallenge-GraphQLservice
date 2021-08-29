@@ -1,8 +1,13 @@
 type Lead {
-  id: ID!
+  id: ID
   name: String
-  email: String
-  phone: String
+  email: String!
+  phoneNumber: String
+  type: String
+  createdAt: String
+  updatedAt: String
+  leadAt: String
+  clientAt: String
 }
 
 input LeadInput {
@@ -24,14 +29,36 @@ type AWSResponse {
   body: String
 }
 
+type AWSResponseLead {
+  "Código de resposta da solicitação"
+  statusCode: Int
+  "Corpo da resposta"
+  body: Lead
+}
+
+type AWSResponseLeads {
+  "Código de resposta da solicitação"
+  statusCode: Int
+  "Corpo da resposta"
+  body: [Lead]
+}
+
 type Query {
-  getLeads(email: String): AWSResponse
+  """
+  Query para recuperar um ou uma lista de leads
+  """
+  lead(email: String): AWSResponseLead
+  leads: AWSResponseLeads
 }
 
 type Mutation {
-  delete(id: String): Boolean
+  """
+  Mutation utilizada para deleção de leads na AWS
+  """
+  deleteLead(email: String!): AWSResponse
   """
   Mutation utilizada para edição de leads na AWS
+  O campo email é obrigatório e não pode ser alterado.
   """
   editLead(lead: LeadInput!): AWSResponse
   """

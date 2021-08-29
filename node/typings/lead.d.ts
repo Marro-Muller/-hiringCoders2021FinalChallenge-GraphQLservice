@@ -4,7 +4,10 @@ export interface Lead {
   email: string
   phoneNumber: string
   type: string
+  createdAt: string
+  updatedAt: string
   leadAt: string
+  clientAt: string
 }
 
 export interface LeadInput {
@@ -23,6 +26,16 @@ export interface LeadAWSList {
 export interface AWSResponse {
   statusCode: number
   body: string
+}
+
+export interface AWSResponseLead {
+  statusCode: number
+  body: Lead
+}
+
+export interface AWSResponseLeads {
+  statusCode: number
+  body: Lead[]
 }
 
 export type Maybe<T> = T | void

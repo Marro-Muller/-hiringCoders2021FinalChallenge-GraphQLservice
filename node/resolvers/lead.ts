@@ -2,8 +2,8 @@ interface Args {
   email: string
 }
 
-export const deleteLead = (
+export const lead = (
   _: any,
   { email }: Args,
   { clients: { lead: leadsClient } }: Context
-) => leadsClient.delete(email)
+) => leadsClient.lead(email)

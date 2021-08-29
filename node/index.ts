@@ -1,9 +1,9 @@
 import type { ParamsContext, RecorderState, ServiceContext } from '@vtex/api'
 import { Service } from '@vtex/api'
-import { prop } from 'ramda'
 
 import { Clients } from './clients'
-import { getLeads } from './resolvers/getLeads'
+import { lead } from './resolvers/lead'
+import { leads } from './resolvers/leads'
 import { deleteLead } from './resolvers/delete'
 import { editLead } from './resolvers/editLead'
 import { newLead } from './resolvers/newLead'
@@ -27,16 +27,14 @@ export default new Service<Clients, RecorderState, ParamsContext>({
   },
   graphql: {
     resolvers: {
-      Lead: {
-        email: prop('email'),
-      },
       Mutation: {
-        delete: deleteLead,
+        deleteLead,
         editLead,
         newLead,
       },
       Query: {
-        getLeads,
+        lead,
+        leads,
       },
     },
   },
