@@ -24,23 +24,28 @@ Serviço para Leads VTEX-AWS
   <a href="#queries-e-mutations">Queries e Mutations</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#integração">Integração</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#repositórios-relacionados">Repositórios relacionados</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#licença">Licença</a>
 </p>
 
 ---
 
 ## O Serviço
-O serviço, que foi desenvolvido durante a terceira fase do programa Hiring Coders #2 como parte do [desafio](#) proposto, é responsável pela troca de dados entre os blocos de front-end customizados no VTEX IO e a API desenvolvida na AWS (repositório da API  [aqui](#)).
+O serviço, que foi desenvolvido durante a terceira fase do programa Hiring Coders #2 como parte do desafio proposto, é responsável pela troca de dados entre os blocos de front-end customizados no VTEX IO e a API desenvolvida na AWS.
 
-Com ele é possível, através do bloco de formulário [#](#), salvar dados capturados referentes a um lead em um banco de dados na AWS e recuperar uma lista com todos os leads já cadastrados, além de atualizar e deletar um lead específico.
+Com ele é possível, através do bloco de formulário, salvar dados capturados referentes a um lead em um banco de dados na AWS e recuperar uma lista com todos os leads já cadastrados, além de atualizar e deletar um lead específico.
 
 Dentro da nuvem da VTEX os blocos se comunicam com o serviço utilizando GraphQL e o serviço, por sua vez, através de um ExternalClient se conecta a API na AWS utilizando REST.
 <br><br>
+
+---
 
 ## Recursos
 
 - <img src="https://i.ibb.co/KD1sgdY/vtex-icon.png" width=16/> **VTEX IO** - Plataforma nativa capaz de ajudar a entrega de soluções de negócio com mais agilidade e segurança.
 - <img src="https://graphql.org/img/logo.svg" width=16/> **GraphQL** -  Linguagem de consulta e ambientes de execução voltado a servidores para APIs que permite extrair dados de várias fontes em uma única chamada.
 <br><br>
+
+---
 
 ## Queries e Mutations
 
@@ -122,6 +127,8 @@ mutation {
 Deleta o registro com o email indicado
 <br><br>
 
+---
+
 ## Integração
 Essa é uma sugestão de como integrar blocos customizados do VTEX IO e o serviço em GraphQL utilizando o react-apollo.
 
@@ -187,6 +194,8 @@ const { loading, error, data, refetch } = useQuery<queryData>(GET_LEADS,
 ...
 ```
 
+---
+
 ## Repositórios relacionados
 
 - [Hiring Coders #2 Terceira Fase- Desafio Final](https://github.com/victorhgadioli/hiringcoders2021-finalChallenge-main)
@@ -195,3 +204,9 @@ const { loading, error, data, refetch } = useQuery<queryData>(GET_LEADS,
 - [Tabela de leads](https://github.com/victorhgadioli/hiringcoders2021-finalChallenge-leadTableBlock)
 - [API de leads na AWS](https://github.com/victorhgadioli/hiringcoders2021-finalChallenge-AWS-API)
 - [VTEX Hook](https://github.com/victorhgadioli/hiringcoders2021-finalChallenge-VTEX-Hook)
+
+---
+
+## Licença
+
+This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) page for details.
