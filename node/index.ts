@@ -23,8 +23,17 @@ export default new Service<Clients, RecorderState, ParamsContext>({
       default: {
         timeout: MEDIUM_TIMEOUT_MS,
       },
+      events: {
+        exponentialTimeoutCoefficient: 2,
+        exponentialBackoffCoefficient: 2,
+        initialBackoffDelay: 50,
+        retries: 1,
+        timeout: 3000,
+        concurrency: 10,
+      },
     },
   },
+
   graphql: {
     resolvers: {
       Mutation: {
