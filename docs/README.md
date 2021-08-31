@@ -1,14 +1,11 @@
-<br>
-<p align="center">
-    <img style='padding: 8px;' src="https://appliancetheme.vtexassets.com/assets/app/src/vtex___751a9fb5b8e275bc4526ef358279243b.svg" alt="VTEX" width="200">
-</p>
-<p align="center">
-    <img style='padding: 8px;' src="https://assets.website-files.com/5ff79f3ebebf6b12f6b7747f/5ffe04fc6284b7e90070d985_logo-gama-academy-p-500.png" alt="Gama-Academy" width="200">
-</p>
-<br>
 <h1 align="center">
-Serviço para Leads VTEX-AWS
+<img src="https://media-exp1.licdn.com/dms/image/C4D1BAQHfQr7OKzw3qw/company-background_10000/0/1625601466872?e=2159024400&v=beta&t=FhYCbZr68ojz3lfyYUPV-M4lziID87ji6A-oat_okZ4" title="We Are ACCT" />
 </h1>
+
+<h1 align="center">
+  Serviço para Leads VTEX-AWS
+</h1>
+<br>
 
 <p align="center">Serviço customizado da VTEX para interação com API AWS</p>
 
@@ -37,15 +34,11 @@ Com ele é possível, através do bloco de formulário, salvar dados capturados 
 Dentro da nuvem da VTEX os blocos se comunicam com o serviço utilizando GraphQL e o serviço, por sua vez, através de um ExternalClient se conecta a API na AWS utilizando REST.
 <br><br>
 
----
-
 ## Recursos
 
 - <img src="https://i.ibb.co/KD1sgdY/vtex-icon.png" width=16/> **VTEX IO** - Plataforma nativa capaz de ajudar a entrega de soluções de negócio com mais agilidade e segurança.
 - <img src="https://graphql.org/img/logo.svg" width=16/> **GraphQL** -  Linguagem de consulta e ambientes de execução voltado a servidores para APIs que permite extrair dados de várias fontes em uma única chamada.
 <br><br>
-
----
 
 ## Queries e Mutations
 
@@ -127,8 +120,6 @@ mutation {
 Deleta o registro com o email indicado
 <br><br>
 
----
-
 ## Integração
 Essa é uma sugestão de como integrar blocos customizados do VTEX IO e o serviço em GraphQL utilizando o react-apollo.
 
@@ -194,8 +185,6 @@ const { loading, error, data, refetch } = useQuery<queryData>(GET_LEADS,
 ...
 ```
 
----
-
 ## Repositórios relacionados
 
 - [Hiring Coders #2 Terceira Fase- Desafio Final](https://github.com/victorhgadioli/hiringcoders2021-finalChallenge-main)
@@ -205,7 +194,6 @@ const { loading, error, data, refetch } = useQuery<queryData>(GET_LEADS,
 - [API de leads na AWS](https://github.com/victorhgadioli/hiringcoders2021-finalChallenge-AWS-API)
 - [VTEX Hook](https://github.com/victorhgadioli/hiringcoders2021-finalChallenge-VTEX-Hook)
 
----
 
 ## Licença
 
